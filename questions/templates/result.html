@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% block content%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
+<form action= "/questions/retake/{{username}}/{{candidate_id}}/" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="candidate_id" value="{{candidate_id}}">
+<div class="row">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-9">
+         <div class="card">
+           <div class="card-header">
+               Django Quizzes for {{username}} , do not be afraid to retake !
+           </div>
+           <div class="card-body">
+                 <h4 class="alert-heading"> Finished Test </h4>
+        <p> Hello {{username}}, here is you test results. <hr>
+               Your total score is :<U><B> {{score}} % </U></B> <hr>
+                Here is what you have answered to the questions for test name <U><B> {{test_name}} </U></B>  <hr>
+                {% for result in results %}
+                    <li>{{result}}
+                {% endfor %}
+               <hr>
+               <!-- 'candidate_id': candidate_id, 'username': username, 'score': testResult.candidate_score,'results': testResult.candidate_answers_id -->
+        <p class="mb-0"> Want to Retake test ?
+            <button type="submit">Retake</button>
+                       </div>
+         </div>
+        <div class="card-footer text-muted">
+            Do you have enough of it ? Click to exit  <a href="/admin/" class="btn btn-primary">Exit Test</a>
+        </div>
+    </div>
+</div>
+</form>
+{% endblock%}

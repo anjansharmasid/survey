@@ -1,0 +1,34 @@
+{% extends 'base.html'%}
+{% block content%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
+<form action= "/questions/redirect/{{candidate_id}}/" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="candidate_id" value="{{candidate_id}}">
+
+<div class="row">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-9">
+         <div class="card">
+           <div class="card-header">
+               Django Quizzes for {{username}} , you are brave indeed !
+           </div>
+           <div class="card-body">
+                <h5 class="card-title"> {{ question.question}} </h5>
+                    <p class="card-text">
+                         Welcome back again {{username}} !  <br>
+ 			 Please select a   {{ form }}
+                    </p>
+               <button type="submit">Retake</button>
+                       </div>
+         </div>
+        <div class="card-footer text-muted">
+            You have more questions to answer !  Had enough ? Click to exit  <a href="/admin/" class="btn btn-primary">Exit Test</a>
+        </div>
+    </div>
+</div>
+</form>
+{% endblock%}

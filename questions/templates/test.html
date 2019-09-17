@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+{% block content%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
+<form action= "/questions/test/{{testIdentifier_id}}/{{candidate_id}}/{{previous}}/" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="question_id" value="{{question_id}}">
+    <input type="hidden" name="candidate_id" value="{{candidate_id}}">
+    <input type="hidden" name="testIdentifier_id" value="{{testIdentifier_id}}">
+    <input type="hidden" name="next" value="{{next}}">
+    <input type="hidden" name="username" value="{{username}}">
+    <input type="hidden" name="remaining" value="{{remaining}}">
+
+
+
+<div class="row">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-9">
+         <div class="card">
+           <div class="card-header">
+               Django Quizzes for {{username}} , do not be afraid! Question number {{question_id}}
+           </div>
+           <div class="card-body">
+                <h5 class="card-title"> {{ question.question}} </h5>
+                    <p class="card-text">  <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="youranswer" id="inlineRadio_a" value="{{answer.answer_a}}" checked="{{answer.answer_a_checked}}">
+                            <label class="form-check-label" for="inlineRadio_a">
+                                a. {{answer.answer_a}}
+                            </label>
+           </div>
+               <div class="form-check form-check-inline">
+                       <input class="form-check-input" type="radio" name="youranswer" id="inlineRadio_b" value="{{answer.answer_b}}" checked="{{answer.answer_b_checked}}>
+                            <label class="form-check-label" for="inlineRadio_b">
+                                b. {{answer.answer_b}}
+                            </label>
+               </div>
+               <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="youranswer" id="inlineRadio_c" value="{{answer.answer_c}}" checked="{{answer.answer_c_checked}}">
+                            <label class="form-check-label" for="inlineRadio_c">
+                                c. {{answer.answer_c}}
+                            </label>
+               </div>
+               <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="youranswer" id="inlineRadio_d" value="{{answer.answer_d}}" checked="{{answer.answer_d_checked}}">
+                            <label class="form-check-label" for="inlineRadio_d">
+                                d. {{answer.answer_d}}
+                            </label>
+               </div></p>
+               <a href="/questions/test/{{testIdentifier_id}}/{{candidate_id}}/{{previous}}" class="btn btn-primary">Previous</a>  <div class="form-check form-check-inline"> </div>
+               <a href="/questions/test/{{testIdentifier_id}}/{{candidate_id}}/{{next}}" class="btn btn-primary">Next</a>  <div class="form-check form-check-inline"> </div>
+               <button type="submit">Submit</button>
+           </div>
+         </div>
+        <div class="card-footer text-muted">
+            You have {{remaining}} more question to answer !  I had enough ! exit me from the test  <a href="/admin/" class="btn btn-primary">Exit Test</a>
+        </div>
+    </div>
+</div>
+</form>
+{% endblock%}
+
+

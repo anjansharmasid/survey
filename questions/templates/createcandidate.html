@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block content%}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Home</li>
+  </ol>
+</nav>
+<form  method="POST">
+    {% csrf_token %}
+<div class="row">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-9">
+         <div class="card">
+           <div class="card-header">
+               Hello,
+           </div>
+           <div class="card-body">
+                <h5 class="card-title"> {{ question.question}} </h5>
+                    <p class="card-text">
+                        <br>
+                        Give a candidate name and email id to start a test <p>
+ 			              {{ form }}
+                    </p>
+               <button type="submit">Submit</button>
+                       </div>
+         </div>
+        <div class="card-footer text-muted">
+            You will be able to retrieve old test results once you login to the site.
+        </div>
+    </div>
+</div>
+</form>
+{% endblock%}
