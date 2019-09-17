@@ -1,14 +1,3 @@
-{% extends 'base.html'%}
-{% block content%}
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Home</li>
-  </ol>
-</nav>
-<form action= "/questions/redirect/{{candidate_id}}/" method="POST">
-    {% csrf_token %}
-    <input type="hidden" name="candidate_id" value="{{candidate_id}}">
-
 <div class="row">
     <div class="col-sm-2"> </div>
     <div class="col-sm-9">
@@ -214,5 +203,3 @@
         </div>
     </div>
 </div>
-</form>
-{% endblock%}
