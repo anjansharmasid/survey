@@ -63,14 +63,18 @@ def findCheckedAnswers(answer,candidate_id):
     option_b_checked = False
     option_c_checked = False
     option_d_checked = False
-    if answer.answer_a == candidateAnswers.candidateAnswer :
-        option_a_checked = True
-    if answer.answer_b == candidateAnswers.candidateAnswer:
-        option_b_checked = True
-    if answer.answer_c == candidateAnswers.candidateAnswer:
-        option_c_checked = True
-    if answer.answer_d == candidateAnswers.candidateAnswer:
-        option_d_checked = True
+    try:
+        if answer.answer_a == candidateAnswers.candidateAnswer:
+            option_a_checked = True
+        if answer.answer_b == candidateAnswers.candidateAnswer:
+            option_b_checked = True
+        if answer.answer_c == candidateAnswers.candidateAnswer:
+            option_c_checked = True
+        if answer.answer_d == candidateAnswers.candidateAnswer:
+            option_d_checked = True
+    except AttributeError:
+        checkedAnswers = CheckedAnswers(answer, False,False,False,False)
+        return checkedAnswers
     checkedAnswers = CheckedAnswers(answer,option_a_checked,option_b_checked,option_c_checked,option_d_checked)
     return checkedAnswers
 
