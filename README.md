@@ -203,3 +203,38 @@
         </div>
     </div>
 </div>
+
+
+
+
+Useful Exampes:
+
+import os
+
+import datetime
+import re
+
+def print_file_dir_name(root_path):
+    paths = os.listdir(root_path)
+    for path in paths:
+        if os.path.isdir(path):
+            print_file_dir_name(path)
+        else:
+            print(path)
+testpath = os.path.expanduser('~')
+
+def print_date():
+    now = datetime.datetime.now
+    now = lambda : datetime.datetime(2019,10,16)
+    print(f'{now}')
+
+def validateEmail():
+    regex  = '[0-9a-zA-Z]+@[a-zA-Z]+\.([a-z][a-z][a-z]|co\.[a-z][a-z])+$'
+    email = 'andr@sde.co.we'
+    if re.search(regex,email) :
+         print(f' Valid email { email} ')
+    else:
+        print(f' Invalid email {email} ')
+
+
+
