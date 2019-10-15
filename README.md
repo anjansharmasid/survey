@@ -207,37 +207,8 @@
 
 
 
-Useful Exampes:
 
-import os
-
-import datetime
-import re
-
-def print_file_dir_name(root_path):
-    paths = os.listdir(root_path)
-    for path in paths:
-        if os.path.isdir(path):
-            print_file_dir_name(path)
-        else:
-            print(path)
-testpath = os.path.expanduser('~')
-
-def print_date():
-    now = datetime.datetime.now
-    now = lambda : datetime.datetime(2019,10,16)
-    print(f'{now}')
-
-def validateEmail():
-    regex  = '[0-9a-zA-Z]+@[a-zA-Z]+\.([a-z][a-z][a-z]|co\.[a-z][a-z])+$'
-    email = 'andr@sde.co.we'
-    if re.search(regex,email) :
-         print(f' Valid email { email} ')
-    else:
-        print(f' Invalid email {email} ')
-
-
-
+<pre><span>import </span>os<br /><span>import </span>datetime<br /><span>import </span>re<br /><br /><span>def </span><span>print_file_dir_name</span>(root_path):<br />    paths = os.listdir(root_path)<br />    <span>for </span>path <span>in </span>paths:<br />        <span>if </span>os.path.isdir(path):<br />            print_file_dir_name(path)<br />        <span>else</span>:<br />            <span>print</span>(path)<br />testpath = os.path.expanduser(<span>'~'</span>)<br /><br /><span>def </span><span>print_date</span>():<br />    now = datetime.datetime.now<br />    now = <span>lambda </span>: datetime.datetime(<span>2019</span><span>,</span><span>10</span><span>,</span><span>16</span>)<br />    <span>print</span>(<span>f'</span><span>{</span>now<span>}</span><span>'</span>)<br /><br /><span>def </span><span>validateEmail</span>():<br />    regex  = <span>'[0-9a-zA-Z]+@[a-zA-Z]+\.([a-z][a-z][a-z]|co\.[a-z][a-z])+$'<br /></span><span>    </span>email = <span>'andr@sde.co.we'<br /></span><span>    </span><span>if </span>re.search(regex<span>,</span>email) :<br />         <span>print</span>(<span>f' Valid email </span><span>{ </span>email<span>} </span><span>'</span>)<br />    <span>else</span>:<br />        <span>print</span>(<span>f' Invalid email </span><span>{</span>email<span>} </span><span>'</span>)</pre>
 
 
 
