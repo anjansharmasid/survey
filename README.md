@@ -213,3 +213,48 @@
 
 
 <pre><span>from </span>django.test <span>import </span>TestCase<span>, </span>Client<br /><span>from </span>django.urls <span>import </span>reverse<br /><span>from </span>. models <span>import </span>Candidate<br /><span>from </span>django.contrib.auth.models <span>import </span>User<br /><span>from </span>django.http <span>import </span>response<br /><span># Create your tests here.<br /></span><span><br /></span><span>class </span>SurveyViewTest(TestCase):<br />    <span>def </span><span>setUp</span>(<span>self</span>):<br />        <span>self</span>.user = User.objects.creat_candidate(<span>username</span>=<span>'djangotesttestuser'</span><span>,</span><span>email</span>=<span>'djangotesttest@gmail.com'</span><span>,</span><span>password</span>=<span>'password'</span>)<br />        Candidate.objects.create(<span>candidate_name</span>=<span>'testcandidateA'</span><span>, </span><span>candidate_email</span>=<span>'testcandidateA@gmail.com'</span>)<br />        Candidate.objects.create(<span>candidate_name</span>=<span>'testcandidateB'</span><span>, </span><span>candidate_email</span>=<span>'testcandidateB@gmail.com'</span>)<br />        <span>self</span>.client = Client()<br />        <span>self</span>.url = reverse(<span>'starttest'</span>)<br /><br />    <span>def </span><span>test_get</span>(<span>self</span>):<br />        response =<span>self</span>.client.get(<span>self</span>.url)<br />        <span>self</span>.assertEquals(response.status_code<span>, </span><span>200</span>)<br />        data = response.context_data(<span>'starttest'</span>)<br />        <span>self</span>.assertEquals(<span>len</span>(data)<span>,</span><span>9</span>)<br />        <span>self</span>.assertEquals(<span>len</span>(data[<span>0</span>])<span>, </span><span>5</span>)</pre>
+
+
+
+
+Numeric File permissions:
+0	No Permission	---
+1	Execute	--x
+2	Write	-w-
+3	Execute + Write	-wx
+4	Read	r--
+5	Read + Execute	r-x
+6	Read +Write	rw-
+7	Read + Write +Execute	rwx
+
+Monitoring Command
+Top
+VmStat 
+lsof - list of all open file and processes
+Tcpdump (tcpdump -i eth0 )- network packet analyzer
+Netstat (netstat -a | more)
+Htop - Process Monitoring
+Iotop - Monitoring Disk I/O
+Iostat – Input/Output Statistics
+IPTraf – Real Time IP LAN Monitoring
+Psacct or Acct – Monitor User Activity
+NetHogs – Monitor Per Process Network Bandwidth
+iftop – Network Bandwidth Monitoring
+
+
+Ports:
+Telnet - 23
+SMTP - 25
+FTP - 20
+IMAP - 143
+RDP - 3389
+SSH -22
+
+
+
+
+
+
+
+
+
