@@ -216,45 +216,30 @@
 
 
 
-
-Numeric File permissions:
-0	No Permission	---
-1	Execute	--x
-2	Write	-w-
-3	Execute + Write	-wx
-4	Read	r--
-5	Read + Execute	r-x
-6	Read +Write	rw-
-7	Read + Write +Execute	rwx
-
-Monitoring Command
-Top
-VmStat 
-lsof - list of all open file and processes
-Tcpdump (tcpdump -i eth0 )- network packet analyzer
-Netstat (netstat -a | more)
-Htop - Process Monitoring
-Iotop - Monitoring Disk I/O
-Iostat – Input/Output Statistics
-IPTraf – Real Time IP LAN Monitoring
-Psacct or Acct – Monitor User Activity
-NetHogs – Monitor Per Process Network Bandwidth
-iftop – Network Bandwidth Monitoring
-
-
-Ports:
-Telnet - 23
-SMTP - 25
-FTP - 20
-IMAP - 143
-RDP - 3389
-SSH -22
-
-
-
-
-
-
+<p><strong>Numeric File permissions: </strong></p>
+<p>0 No Permission---&nbsp;</p>
+<p>1Execute--x&nbsp;</p>
+<p>2Write-w-&nbsp;</p>
+<p>3Execute + Write-wx&nbsp;</p>
+<p>4Readr--&nbsp;</p>
+<p>5Read + Executer-x&nbsp;</p>
+<p>6Read +Writerw-&nbsp;</p>
+<p>7Read + Write +Executerwx&nbsp;</p>
+<p><br></p>
+<p>Monitoring Command&nbsp;</p>
+<p>Top&nbsp;</p>
+<p>VmStat lsof - list of all open file and processes&nbsp;</p>
+<p>Tcpdump (tcpdump -i eth0 )- network packet analyzer&nbsp;</p>
+<p>Netstat (netstat -a | more)&nbsp;</p>
+<p>Htop - Process Monitoring&nbsp;</p>
+<p>Iotop - Monitoring Disk I/O&nbsp;</p>
+<p>Iostat &ndash; Input/Output Statistics&nbsp;</p>
+<p>IPTraf &ndash; Real Time IP LAN Monitoring&nbsp;</p>
+<p>Psacct or Acct &ndash; Monitor User Activity&nbsp;</p>
+<p>NetHogs &ndash; Monitor Per Process Network Bandwidth&nbsp;</p>
+<p>iftop &ndash; Network Bandwidth Monitoring&nbsp;</p>
+<p><br></p>
+<p><strong>Ports:</strong> Telnet - 23&nbsp; &nbsp; SMTP - 25&nbsp; &nbsp; FTP - 20&nbsp; &nbsp; IMAP - 143&nbsp; &nbsp;RDP - 3389&nbsp; &nbsp;SSH -22</p>
 
 
 
