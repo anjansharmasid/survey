@@ -243,3 +243,150 @@
 
 
 
+Docker
+
+
+
+| 
+@ ,
+~                                                                             
+~     
+
+
+
+
+
+docker --version
+docker-compose --version
+> pull mysql from docker hub
+  docker pull mariadb:10.0.25
+
+> Display images
+  docker images
+
+> Create database volume and run  /user/local/data
+  docker run -d -v /user/local/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 --name my_mariadb mariadb:10.0.25
+
+> Display volume
+  docker volume ls
+
+> compose file validation 
+ docker-compose config 
+
+> destroy all volumes
+  docker-compose down
+
+> Link containers
+  docker run -d --name my_wordpress --link my_mariadb:mysql-p 8080:80  wordpress:version
+
+> Display all containers including not running
+  docker ps -a
+> Remove docker images from local installation
+  docker rm container_name
+> Look inside a container
+  docker run exec -ti container_name /bin/sh
+
+
+  Basic compose file:(docker-compose.yml)
+  version :'3'
+  services:
+    service_name:
+       container_name: <my_web_container-name>
+       build:
+           context: .
+           target: development
+           args:
+             - <build_args>:<build_args_values>
+       image:<image_name_produced_by_the_build>
+       env_file:
+         - .env.txt
+       environment:
+         - <variable_name>=<variable>
+       ports:
+         - 8080:80
+       network:
+         - <network_name>
+       volumes:
+         - <volume_name>:/path/inside/container
+
+  networks:
+     network_name:
+        driver: bridge
+  volumes:
+        volume_name:              
+
+
+> build and run from docker-compose.yml
+  docker-compose up -d
+
+> verify docker logs
+  docker-compose logs -f
+  docker-compose logs -f <container_name>
+
+> Build command
+  docker-compose build ( if images need to be build.)  
+
+> Display network list
+  docker network ls
+
+> Inspect a network
+  docker networl inspect <network_name>
+
+> Remove unused network
+  docker network prune
+
+> Stop all containers
+  docker-compose stop
+
+> Run contailer without modifyin the running containers (No port mapping)
+  docker-compose run <container_name>
+
+> Scalling
+  docker-compose up -scale <container_name>=3  (will need a load balancer or there will be port conflict)
+
+1. Docker states and Docker Events are used to monitoring docker in the production environment.
+2. Memory-swap is a modified flag
+3. What are the command to control Docker with Systemd
+
+
+nginx proxy.conf :
+
+service {
+    listen 80;
+location / {
+     proxy_pass http://app;
+    }
+}
+
+nginx proxy:
+
+FROM nginx:alpine
+RUN rm -r /etc/nginx/conf.d/
+COPY proxy.conf /etc/nginx/conf.d
+EXPOSE 80
+
+docker-compose:(LB)
+version : '3.2'
+
+services:
+    web:
+      image: lb2-app
+
+      links:
+        - database
+        - proxy
+
+    database:
+      image: redis
+
+    proxy:
+      image: proxy
+      ports:
+        - 80:85
+
+
+
+
+
+
+
