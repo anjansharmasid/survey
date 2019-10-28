@@ -353,8 +353,10 @@ nginx proxy.conf :
 
 service {
     listen 80;
+    resolver 127.0.0.11;
+    set $upstream http://app;
 location / {
-     proxy_pass http://app;
+     proxy_pass $upstream;
     }
 }
 
