@@ -245,25 +245,6 @@
 
 Docker
 
-
-
-| 
-@ ,
-~                                                                             
-~     
-
-
-
-
-
-docker --version
-docker-compose --version
-> pull mysql from docker hub
-  docker pull mariadb:10.0.25
-
-> Display images
-  docker images
-
 > Create database volume and run  /user/local/data
   docker run -d -v /user/local/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 --name my_mariadb mariadb:10.0.25
 
@@ -353,7 +334,7 @@ nginx proxy.conf :
 
 service {
     listen 80;
-    resolver 127.0.0.11;
+    resolver 127.0.0.11 valid=5s;
     set $upstream http://app;
 location / {
      proxy_pass $upstream;
